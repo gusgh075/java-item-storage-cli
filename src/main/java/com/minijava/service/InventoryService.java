@@ -1,7 +1,7 @@
-package com.kth.game.inventory.service;
+package com.minijava.service;
 
-import com.kth.game.inventory.comparator.AscendingPower;
-import com.kth.game.inventory.dto.ItemDTO;
+import com.minijava.comparator.AscendingPower;
+import com.minijava.dto.ItemDTO;
 
 import java.util.ArrayList;
 import java.util.Collections;

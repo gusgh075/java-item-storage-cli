@@ -1,7 +1,7 @@
-package com.kth.game.inventory.run;
+package com.minijava.run;
 
-import com.kth.game.inventory.dto.ItemDTO;
-import com.kth.game.inventory.service.InventoryService;
+import com.minijava.dto.ItemDTO;
+import com.minijava.service.InventoryService;
 
 import java.util.InputMismatchException;
 import java.util.List;
