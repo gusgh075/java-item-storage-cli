@@ -33,4 +33,9 @@ public class ItemRepository implements ItemRepositoryInterface {
     public List<ItemDTO> findAll() {
         return List.copyOf(itemDTOList); // 방어적 복사
     }
+
+  @Override
+  public boolean delete(Integer id) {
+    return itemDTOList.removeIf(item -> item.getNumber() == id.intValue());
+  }
 }

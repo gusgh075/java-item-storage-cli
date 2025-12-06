@@ -14,4 +14,6 @@ public interface ItemRepositoryInterface {
 
     List<ItemDTO> findAll();
 
+    boolean delete(Integer id);
+
 }
