@@ -1,4 +1,4 @@
-package game.inventory.dto;
+package com.kth.game.inventory.dto;
 
 public class ItemDTO implements Comparable<ItemDTO> {
 
