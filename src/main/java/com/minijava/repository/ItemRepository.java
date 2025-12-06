@@ -29,6 +29,14 @@ public class ItemRepository implements ItemRepositoryInterface {
                 .toList(); // Java 16+
     }
 
+  @Override
+  public List<ItemDTO> findByKeyword(String keyword) {
+    return itemDTOList.stream()
+        // getName()에 keyword가 포함되어 있으면 true
+        .filter(item -> item.getName().contains(keyword))
+        .toList();
+  }
+
     @Override
     public List<ItemDTO> findAll() {
         return List.copyOf(itemDTOList); // 방어적 복사

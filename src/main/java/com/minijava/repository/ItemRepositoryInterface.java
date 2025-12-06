@@ -12,6 +12,8 @@ public interface ItemRepositoryInterface {
 
     List<ItemDTO> findByName(String name);
 
+  List<ItemDTO> findByKeyword(String keyword);
+
     List<ItemDTO> findAll();
 
     boolean delete(Integer id);
