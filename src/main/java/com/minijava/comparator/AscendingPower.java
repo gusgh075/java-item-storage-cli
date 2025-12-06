@@ -1,6 +1,7 @@
-package com.kth.game.inventory.comparator;
+package com.minijava.comparator;
 
-import com.kth.game.inventory.dto.ItemDTO;
+import com.minijava.dto.ItemDTO;
+
 import java.util.Comparator;
 
 public class AscendingPower implements Comparator<ItemDTO> {
