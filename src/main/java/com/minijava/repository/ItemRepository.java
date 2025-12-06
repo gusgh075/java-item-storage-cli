@@ -49,6 +49,7 @@ public class ItemRepository implements ItemRepositoryInterface {
 
     @Override
     public Integer getLastItemNumber() {
+        if(itemDTOList.isEmpty()) return -1;
         return itemDTOList.get(itemDTOList.size()-1).getNumber();
     }
 

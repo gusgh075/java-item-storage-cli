@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2fb3a66-be33-40b8-9527-b35707b07c10" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minijava/repository/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minijava/repository/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minijava/repository/ItemRepositoryInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minijava/repository/ItemRepositoryInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/minijava/service/impl/ItemAddServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minijava/service/impl/ItemAddServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
