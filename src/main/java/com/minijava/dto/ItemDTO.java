@@ -1,6 +1,8 @@
 package com.minijava.dto;
 
-public class ItemDTO implements Comparable<ItemDTO> {
+import java.io.Serializable;
+
+public class ItemDTO implements Serializable, Comparable<ItemDTO> {
 
   /* 아이템 정보를 저장할 DTO 클래스 */
   private int number;      // 아이템 고유 번호
