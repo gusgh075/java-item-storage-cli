@@ -19,7 +19,7 @@ public interface ItemRepositoryInterface {
     boolean delete(Integer id);
 
     /**
-     * 마지막 요소의 아이템 고유번호를 반환한다. 만일 비어있다면 -1을 반환한다.
+     * 마지막 요소의 아이템 고유번호를 반환한다. 만일 저장소가 비어있다면 -1을 반환한다.
      * @return
      */
     Integer getLastItemNumber();

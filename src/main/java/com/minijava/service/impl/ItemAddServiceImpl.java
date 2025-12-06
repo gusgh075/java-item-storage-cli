@@ -16,7 +16,7 @@ public class ItemAddServiceImpl implements ItemAddService {
 
 
     /**
-     * item을 추가하는 메서드. return 값으로 ID를 반환한다. 0을 반환할 시 중복 값이 있다는 것.
+     * item을 추가하는 메서드. return 값으로 추가한 아이템의 고유번호를 반환한다. -1을 반환할 시 중복 값이 있다는 것.
      *
      * @param name
      * @param rank
