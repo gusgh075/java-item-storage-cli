@@ -42,14 +42,17 @@ public class ItemSearchServiceImpl implements com.minijava.service.ItemSearchSer
   }
 
   @Override
-  public List<ItemDTO> findItemsByName(String name) {
-    // Repository의 findByName() 메서드를 호출하여 이름이 일치하는 상품들을 조회합니다.
-
-    // name이 빈 문자열이거나 공백만으로 이루어진 문자열일 경우 빈 리스트 반환
+  public ItemDTO findItemsByName(String name) {
+    // 1. 유효성 검사: 이름이 null이거나 공백인지 확인
     if (name == null || name.trim().isEmpty()) {
-      return List.of(); // 빈 리스트 반환
+      return null;
     }
-    return itemRepository.findByName(name);
+
+    // 2. Repository 호출: (수정된 Repository의) findByName은 이제 ItemDTO를 반환합니다.
+    ItemDTO foundItem = itemRepository.findByName(name);
+
+    // 3. 찾은 객체 또는 null 반환
+    return foundItem;
   }
 
   @Override

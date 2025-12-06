@@ -23,11 +23,15 @@ public class ItemRepository implements ItemRepositoryInterface {
     }
 
     @Override
-    public List<ItemDTO> findByName(String name) {
-        return itemDTOList.stream()
-                .filter(item -> item.getName().equals(name))
-                .toList(); // Java 16+
+    public ItemDTO findByName(String name) {
+      // 필터링 후 findFirst()와 orElse(null)을 사용해 단일 객체를 반환합니다.
+      return itemDTOList.stream()
+          .filter(item -> item.getName().equals(name))
+          .findFirst() // 첫 번째 일치 요소 (이름 고유하므로 유일한 요소)를 찾습니다.
+          .orElse(null); // 찾지 못하면 null을 반환합니다.
     }
+
+
 
   @Override
   public List<ItemDTO> findByKeyword(String keyword) {

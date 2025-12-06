@@ -10,7 +10,7 @@ public interface ItemRepositoryInterface {
 
     ItemDTO findById(Integer id);
 
-    List<ItemDTO> findByName(String name);
+    ItemDTO findByName(String name);
 
   List<ItemDTO> findByKeyword(String keyword);
 

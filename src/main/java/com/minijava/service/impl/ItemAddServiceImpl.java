@@ -27,8 +27,8 @@ public class ItemAddServiceImpl implements ItemAddService {
     @Override
     public int itemAdd(String name, String rank, String quality, int power) {
         // 이름 중복 아이템 처리
-        List<ItemDTO> byName = itemRepository.findByName(name);
-        if (!byName.isEmpty()) return -1;
+        ItemDTO existingItem = itemRepository.findByName(name);
+        if (existingItem != null) return -1;
 
         // 아이템 정상 등록
         int newItemNumber;
