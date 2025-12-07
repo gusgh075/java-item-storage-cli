@@ -150,10 +150,13 @@ public class Application {
     try {
       System.out.print("이름: ");
       String name = sc.nextLine();
-      System.out.print("등급(일반/희귀/레전더리): ");
-      String rank = sc.nextLine();
+
+      // 1. 등급 유효성 검사 메서드 호출
+      String rank = getValidRank();
+
       System.out.print("품질: ");
       String quality = sc.nextLine();
+
       System.out.print("공격력/방어력(Power): ");
       int power = sc.nextInt();
       sc.nextLine();
@@ -168,6 +171,30 @@ public class Application {
     } catch (InputMismatchException e) {
       System.out.println("[등록 오류] 파워(Power) 값은 숫자로만 입력해야 합니다.");
       sc.nextLine();
+    }
+  }
+
+  // 등급(Rank) 무결성 검사 메서드 (새로 추가)
+  /**
+   * 유효한 등급(일반/희귀/레전더리)이 입력될 때까지 입력을 반복하여 받습니다.
+   * @return 유효한 등급 문자열
+   */
+  private String getValidRank() {
+    // 허용되는 등급 목록 (대소문자 무시를 위해 소문자로 저장)
+    final List<String> VALID_RANKS = List.of("일반", "희귀", "레전더리");
+    String rankInput;
+
+    while (true) {
+      System.out.print("등급(일반/희귀/레전더리): ");
+      rankInput = sc.nextLine().trim();
+
+      if (VALID_RANKS.contains(rankInput)) {
+        // 유효한 등급인 경우 반환
+        return rankInput;
+      } else {
+        // 유효하지 않은 등급인 경우 오류 메시지 출력 후 반복
+        System.out.println("❌ [오류] 등급은 '일반', '희귀', '레전더리' 중 하나만 입력해야 합니다. 다시 입력해주세요.");
+      }
     }
   }
 
