@@ -5,6 +5,14 @@ import java.util.List;
 
 public interface ItemRepositoryInterface {
 
+
+  /**
+   * 전체 저장
+   * 현재 List에 있는 데이터를 물리적 저장소에 반영
+   */
+  void saveAll();
+
+
   /**
    * 아이템을 저장소에 저장함
    * @param item 저장할 아이템 객체
