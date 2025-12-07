@@ -11,7 +11,6 @@ public class ItemFileIORepository extends AbstractItemRepository{
 
 
     public ItemFileIORepository() {
-      super(); // 부모 생성자 호출 (리스트 생성)
       load(); // 생성자를 통해 기존 파일에 저장되어 있던 데이터들을 List<ItemDTO>형태로 items에 넣음
     }
 
@@ -22,7 +21,6 @@ public class ItemFileIORepository extends AbstractItemRepository{
     private void load() {
         File file = new File(FilePathConstants.INVENTORY_FILE_PATH);
 
-        // 파일이 없으면 읽을게 없으므로 종료
         if (!file.exists()) return;
 
         try(ObjectInputStream ois = new ObjectInputStream((new FileInputStream(file)))){
@@ -39,7 +37,7 @@ public class ItemFileIORepository extends AbstractItemRepository{
         }
     }
 
-  // 현재 리스트 상태를 파일에 덮어씁니다.
+  // 파일 쓰기
   private void saveToFile() {
     File file = new File(FilePathConstants.INVENTORY_FILE_PATH);
 
@@ -58,24 +56,7 @@ public class ItemFileIORepository extends AbstractItemRepository{
 
   @Override
   public void saveAll() {
-    System.out.println("시스템 강제 저장 실행");
     saveToFile();
   }
 
-  @Override
-  public void addItem(ItemDTO item) {
-    super.addItem(item); // 부모클래스한테 리스트에 추가/수정 해달라고 요청
-    saveToFile(); // 데이터가 변했으니 파일에도 저장
-  }
-
-  @Override
-  public boolean delete(Integer id) {
-    boolean isDeleted = super.delete(id); // 부모클래스한테 리스트에서 삭제해달라고 요청
-
-    // 삭제에 성공했다면 파일에도 반영
-    if (isDeleted) {
-      saveToFile();
-    }
-    return isDeleted;
-  }
 }

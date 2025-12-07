@@ -11,13 +11,4 @@ import java.util.List;
 * */
 public class ItemRepository extends AbstractItemRepository {
 
-
-  /*
-  * saveAll() (강제)
-  * 이 저장소는 영구 저장을 지원하지 않으므로, 아무것도 핮 않게 비워둠
-  * */
-  @Override
-  public void saveAll() {
-    System.out.println("파일 저장 건너뛴다.");
-  }
 }

@@ -7,12 +7,11 @@ public interface ItemRepositoryInterface {
 
 
   /**
-   * 강제 저장 기능
-   * save()나 delete()는 데이터가 변할때만 저장
-   * 하지만 이 saveAll()은 데이터 변경없이도 현재 상태를 파일에 덮어쓰고 싶을 때 사용
-   * FileIO에서는 파일 쓰기, 그냥 itemrepo에서는 무시
+   * 전체 저장
+   * 현재 List에 있는 데이터를 물리적 저장소에 반영
    */
   void saveAll();
+
 
   /**
    * 아이템을 저장소에 저장함
