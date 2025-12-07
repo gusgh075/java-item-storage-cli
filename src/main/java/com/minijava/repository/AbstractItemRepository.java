@@ -28,7 +28,6 @@ public abstract class AbstractItemRepository implements ItemRepositoryInterface 
     }
     // 반복문을 다 돌았는데도 return이 되지 않았으면 새 아이템이라는 뜻
     itemDTOList.add(item); // 리스트 맨 뒤에 추가 된다.
-    saveAll();
   }
 
   @Override
