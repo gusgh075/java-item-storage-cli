@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Random;
 
 public class GachaService {
-    Random rand = new Random();
-    ItemRepositoryInterface itemRepository;
+    private Random rand = new Random();
+    private ItemRepositoryInterface itemRepository;
 
     public GachaService(ItemRepositoryInterface itemRepository){
         this.itemRepository=itemRepository;
