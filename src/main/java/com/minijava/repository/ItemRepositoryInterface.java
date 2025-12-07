@@ -5,6 +5,15 @@ import java.util.List;
 
 public interface ItemRepositoryInterface {
 
+
+  /**
+   * 강제 저장 기능
+   * save()나 delete()는 데이터가 변할때만 저장
+   * 하지만 이 saveAll()은 데이터 변경없이도 현재 상태를 파일에 덮어쓰고 싶을 때 사용
+   * FileIO에서는 파일 쓰기, 그냥 itemrepo에서는 무시
+   */
+  void saveAll();
+
   /**
    * 아이템을 저장소에 저장함
    * @param item 저장할 아이템 객체
