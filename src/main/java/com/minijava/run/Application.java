@@ -3,7 +3,6 @@ package com.minijava.run;
 import com.minijava.dto.ItemDTO;
 import com.minijava.repository.ItemFileIORepository;
 import com.minijava.repository.ItemRepositoryInterface;
-import com.minijava.service.InventoryService;
 import com.minijava.service.ItemAddService;
 import com.minijava.service.ItemDeleteService;
 import com.minijava.service.ItemSearchService;
@@ -24,7 +23,6 @@ public class Application {
   private final ItemDeleteService itemDeleteService;
   private final ItemSearchService itemSearchService;
 
-  private InventoryService invService = new InventoryService();
 
   public Application() {
     // 파일 I/O 기반 Repository 생성 및 주입
@@ -52,10 +50,7 @@ public class Application {
       System.out.println("4. 아이템 추가 (저장소)");
       System.out.println("5. 아이템 삭제(번호, 저장소)");
       System.out.println("6. 사용자 이름 설정 (미구현)");
-      System.out.println("7. 인벤토리 조회 ");
-      System.out.println("8. 아이템 뽑기 (미구현)");
-      System.out.println("9. 아이템 버리기");
-      System.out.println("10. 아이템 정렬(가방 정리)");
+      System.out.println("7. 아이템 뽑기 (미구현)");
       System.out.println("0. 시스템 종료");
 
       try {
@@ -71,11 +66,8 @@ public class Application {
           case 5: deleteItem(); break;
           case 6: System.out.println("[6번 기능] 사용자 이름 설정 기능은 아직 구현되지 않았습니다."); break;
           // setUserName();
-          case 7: seeInventory(); break;
-          case 8: System.out.println("[8번 기능] 아이템 뽑기 기능은 아직 구현되지 않았습니다."); break;
+          case 7: System.out.println("[7번 기능] 아이템 뽑기 기능은 아직 구현되지 않았습니다."); break;
           // pickItem();
-          case 9: trashInventory(); break;
-          case 10: sortInventory(); break;
           case 0:
             System.out.println("시스템을 종료합니다. 진행 상황이 저장되었습니다."); break;
           default:
@@ -219,56 +211,7 @@ public class Application {
     }
   }
 
-  // 7. 인벤토리 조회
-  private void seeInventory() {
-    System.out.println("\n*** 전체 인벤토리 조회 ***\n");
-    List<ItemDTO> inventory = invService.getInventory();
 
-    if(inventory.isEmpty()) {
-      System.out.println("가방이 비어있습니다.");
-      return;
-    }
 
-    for (ItemDTO item : inventory) {
-      System.out.println(item);
-    }
-  }
-
-  // 9. 아이템 버리기
-  private void trashInventory() {
-    System.out.print("\n*** 아이템 버리기(삭제) ***\n");
-
-    System.out.print("제거할 아이템 번호 입력 : ");
-    int itemNumber = sc.nextInt();
-    sc.nextLine();
-
-    // 서비스 호출
-    ItemDTO deletedItem = invService.deleteItem(itemNumber);
-
-    if (deletedItem == null) {
-      System.out.println("@@@ 일치하는 번호의 아이템이 없습니다. @@@");
-      return;
-    }
-
-    System.out.println("'" + deletedItem.getName() + "' 아이템을 버렸습니다.");
-  }
-
-  // 10. 인벤토리 정렬
-  private void sortInventory() {
-   System.out.print("\n*** 인벤토리 정렬 목록 조회 ***\n");
-
-    System.out.println("1. 아이템명 오름차순");
-    System.out.println("2. 전투력 오름차순");
-    System.out.print("정렬 방식 선택 >> ");
-    int sortingNumber = sc.nextInt();
-    sc.nextLine();
-
-    // 서비스 호출
-    List<ItemDTO> sortedList = invService.sortInventory(sortingNumber);
-
-    for (ItemDTO item : sortedList) {
-      System.out.println(item);
-    }
-  }
 
 }
