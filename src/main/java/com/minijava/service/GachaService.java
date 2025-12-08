@@ -45,6 +45,7 @@ public class GachaService {
             return null;
         }
         List<ItemDTO> rankItems = itemRepository.findAll().stream().filter(itemDTO -> itemDTO.getRank().equals(rank)).toList(); // 정해진 랭크에 속하는 아이템 리스트를 추철
+
         int randomTarget = rand.nextInt(0, rankItems.size()); // rankItems중 랜덤으로 하나의 index를 지정한다
         return rankItems.get(randomTarget);
     }

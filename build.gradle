@@ -9,6 +9,21 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    manifest {
+        // 실행할 메인 클래스 경로 (패키지명.클래스명)
+        attributes 'Main-Class': 'com/minijava/run/Application'
+    }
+
+    // 외부 라이브러리(dependencies)를 jar 안에 포함시키는 설정 (Fat JAR 만들기)
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    // 중복 파일 처리 전략 (오류 방지용)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
