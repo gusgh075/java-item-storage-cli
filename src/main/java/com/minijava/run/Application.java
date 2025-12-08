@@ -16,6 +16,7 @@ public class Application {
     new Application().run();
   }
 
+
   public void run() {
 
     int input = 0;
