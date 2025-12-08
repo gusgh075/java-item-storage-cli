@@ -11,8 +11,5 @@ import java.util.List;
 * */
 
 public class ItemRepository extends AbstractItemRepository {
-  @Override
-  public void saveAll() {
 
-  }
 }
