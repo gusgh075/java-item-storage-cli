@@ -10,6 +10,9 @@ import java.util.List;
 * AbstractItemRepository의 기능을 그대로 받아 사용한다.
 * */
 
-public abstract class ItemRepository extends AbstractItemRepository {
+public class ItemRepository extends AbstractItemRepository {
+  @Override
+  public void saveAll() {
 
+  }
 }
